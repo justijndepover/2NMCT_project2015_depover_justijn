@@ -11,9 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 
-public class Overzicht extends Activity implements OverzichtFragment.OnOverzichtFragmentListener {
+public class Overzicht extends Activity implements OverzichtFragment.OnOverzichtFragmentListener, DetailsFragment.OnDetailsFragmentListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,16 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
         DetailsFragment detailsFragment = DetailsFragment.newInstance(cursor);
         fragmentTransaction.replace(R.id.container, detailsFragment);
         fragmentTransaction.addToBackStack("detailsFragment");
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onSelectMap(double x, double y, String benaming) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MapFragment mapFragment = MapFragment.newInstance(y, x, benaming);
+        fragmentTransaction.replace(R.id.container, mapFragment);
+        fragmentTransaction.addToBackStack("mapFragment");
         fragmentTransaction.commit();
     }
 }

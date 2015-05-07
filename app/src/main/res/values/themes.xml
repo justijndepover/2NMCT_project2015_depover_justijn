@@ -3,7 +3,7 @@
 <!--<style name="AppTheme" parent="android:Theme.Material.Light">
 
 </style>-->
-
+<!-- kortrijk kleur E6352E -->
 <color name="primary">#E6352E</color>
 <color name="primary_dark">#CC3232</color>
 <color name="accent">#61215E</color>
