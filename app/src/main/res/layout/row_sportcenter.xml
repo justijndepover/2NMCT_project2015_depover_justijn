@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,5 +8,37 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tvBenaming" />
-</LinearLayout>
+        android:id="@+id/tvBenaming"
+        android:layout_margin="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="bla"
+        android:id="@+id/tvSoort"
+        android:layout_below="@+id/tvBenaming"
+        android:layout_alignStart="@+id/tvBenaming" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="-"
+        android:id="@+id/tvDash"
+        android:layout_below="@+id/tvBenaming"
+        android:layout_toEndOf="@+id/tvSoort"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvSport"
+        android:layout_alignTop="@+id/tvDash"
+        android:layout_toEndOf="@+id/tvDash"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin" />
+
+</RelativeLayout>

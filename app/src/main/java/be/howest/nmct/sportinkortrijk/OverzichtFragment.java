@@ -59,12 +59,13 @@ public class OverzichtFragment extends ListFragment implements LoaderManager.Loa
                 /*Contract.DataColumns.COLUMN_INSTANTIE,
                 Contract.DataColumns.COLUMN_ADRES,
                 Contract.DataColumns.COLUMN_GEMEENTE,
+                */
                 Contract.DataColumns.COLUMN_SOORT,
-                Contract.DataColumns.COLUMN_SPORT,
+                Contract.DataColumns.COLUMN_SPORT/*,
                 Contract.DataColumns.COLUMN_AFMETINGEN,
                 Contract.DataColumns.COLUMN_Y,
                 Contract.DataColumns.COLUMN_X*/};
-        int[] viewIds = new int[]{R.id.tvBenaming};
+        int[] viewIds = new int[]{R.id.tvBenaming, R.id.tvSoort, R.id.tvSport};
 
         // Create an empty adapter we will use to display the loaded data.
         mAdapter = new OverzichtFragment.OverzichtAdapter(getActivity(), R.layout.row_sportcenter, null, columns, viewIds, 0);
