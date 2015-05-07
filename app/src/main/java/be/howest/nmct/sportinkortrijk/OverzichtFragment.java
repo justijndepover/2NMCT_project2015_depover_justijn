@@ -33,7 +33,7 @@ public class OverzichtFragment extends ListFragment implements LoaderManager.Loa
     }
 
     public interface OnOverzichtFragmentListener {
-        public void onSelectData(String sNameData);
+        public void onSelectData(Cursor cursor);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class OverzichtFragment extends ListFragment implements LoaderManager.Loa
         super.onListItemClick(l, v, position, id);
         Cursor c = (Cursor) mAdapter.getItem(position);
         String selectedData = c.getString(c.getColumnIndex(Contract.DataColumns.COLUMN_INSTANTIE));
-        if (mListener != null) mListener.onSelectData(selectedData);
+        if (mListener != null) mListener.onSelectData(c);
     }
 
     class OverzichtAdapter extends SimpleCursorAdapter {

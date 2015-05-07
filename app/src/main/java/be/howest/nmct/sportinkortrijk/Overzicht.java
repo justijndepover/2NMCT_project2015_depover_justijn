@@ -1,10 +1,16 @@
 package be.howest.nmct.sportinkortrijk;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.SearchManager;
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 
 public class Overzicht extends Activity implements OverzichtFragment.OnOverzichtFragmentListener {
@@ -20,8 +26,12 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        /*// Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_overzicht, menu);
+        return true;*/
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+
         return true;
     }
 
@@ -33,15 +43,18 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public void onSelectData(String sNameData) {
-
+    public void onSelectData(Cursor cursor) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        DetailsFragment detailsFragment = DetailsFragment.newInstance(cursor);
+        fragmentTransaction.replace(R.id.container, detailsFragment);
+        fragmentTransaction.addToBackStack("detailsFragment");
+        fragmentTransaction.commit();
     }
 }
