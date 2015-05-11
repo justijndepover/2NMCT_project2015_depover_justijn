@@ -58,7 +58,7 @@ public class MapFragment extends Fragment {
 
         googleMap.addMarker(marker);
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(getArguments().getDouble(ARG_X),getArguments().getDouble(ARG_Y))).zoom(12).build();
+                .target(new LatLng(getArguments().getDouble(ARG_X),getArguments().getDouble(ARG_Y))).zoom(16).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         return v;

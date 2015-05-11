@@ -33,6 +33,8 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.options_menu, menu);
 
+        //hier komt zoek functie
+
         return true;
     }
 
