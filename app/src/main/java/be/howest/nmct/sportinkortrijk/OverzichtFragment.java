@@ -25,7 +25,7 @@ import be.howest.nmct.sportinkortrijk.loader.SportcenterLoader;
 
 public class OverzichtFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private OverzichtAdapter mAdapter;
+    public OverzichtAdapter mAdapter;
 
     private OnOverzichtFragmentListener mListener;
 
@@ -88,6 +88,8 @@ public class OverzichtFragment extends ListFragment implements LoaderManager.Loa
         // Swap the new cursor in.  (The framework will take care of closing the
         // old cursor once we return.)
         mAdapter.swapCursor(cursor);
+        Overzicht o = (Overzicht)getActivity();
+        o.CurrentCursor = cursor;
     }
 
     @Override
