@@ -36,7 +36,12 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
         final SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
         of = (OverzichtFragment) getFragmentManager().findFragmentByTag("FilterFragment");
-        CurrentCursor = of.mAdapter.getCursor();
+        try{
+            CurrentCursor = of.mAdapter.getCursor();
+        }catch(Exception e){
+
+        }
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -46,9 +51,13 @@ public class Overzicht extends Activity implements OverzichtFragment.OnOverzicht
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                String s = searchView.getQuery().toString();
-                FilterCursorWrapper fcw = new FilterCursorWrapper(CurrentCursor, s, 1);
-                of.mAdapter.changeCursor(fcw);
+                try{
+                    String s = searchView.getQuery().toString();
+                    FilterCursorWrapper fcw = new FilterCursorWrapper(CurrentCursor, s, 1);
+                    of.mAdapter.changeCursor(fcw);
+                }catch(Exception e){
+
+                }
                 return true;
             }
         });
